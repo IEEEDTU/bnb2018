@@ -1,83 +1,49 @@
-<!--<div class="navbar navbar-default navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-        <ul class="nav navbar-nav">
-          <li [routerLinkActive]="['active']"><a [routerLink]="['/']" class="navbar-brand">Bulls 'n' Bears</a></li>
-        </ul>
-          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-        </div>
-        <div class="navbar-collapse collapse" id="navbar-main">
-          <ul class="nav navbar-nav">-->
 
-            <!-- <li>
-              <a href="../help/">Help</a>
-            </li>
-
-            <li>
-              <a href="http://news.bootswatch.com">Blog</a>
-            </li> -->
-
-          <!--</ul>
-
-          <ul class="nav navbar-nav navbar-right">
-            <li [routerLinkActive]="['active']"><a [routerLink]="['/market']">Market</a></li>
-            <li [routerLinkActive]="['active']"><a [routerLink]="['/news']">News</a></li>
-            <li [routerLinkActive]="['active']"><a [routerLink]="['/help']">Help</a></li>
-            <li [routerLinkActive]="['active']"><a [routerLink]="['/profile']">My profile</a></li>
-          </ul>
-
-        </div>
-      </div>
-    </div>-->
         <nav class="nav-top navbar">
       <div class="container-fluid">
         <div class="navbar-header">
-          <div class="nav-top-mobile">
+          <div class="nav-top-mobile" style="margin-top: 0 !important;">
             <div class="mobile-user">
               <ul>
+                <!-- <li  class="dropdown">
+                    <a href="https://goo.gl/JA1r8Z" class="mobile-user-profile" role="button" aria-haspopup="true" aria-expanded="false">Rule <i class="fa fa-book" aria-hidden="true"></i></a>
+                </li> -->
                 <li class="dropdown">
+                    <a href="https://goo.gl/JA1r8Z" class="mobile-user-profile" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-book" aria-hidden="true"></i></a>
                   <a href="/profile" class="mobile-user-profile" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user" aria-hidden="true"></i></a>
 
                 </li>
               </ul>
-            </div>
-            <div class="mobile-search">
-              <a href="#" class="mobile-search-trigger" role="button"><i class="fa fa-search" aria-hidden="true"></i></a>
-              <div class="mobile-search-active animated fadeInDown">
-                  <form class="mobile-search-box">
-                      <i class="glyphicon glyphicon-search"></i>
-                      <input class="mobile-search-input" autofocus type="text" spellcheck="false" placeholder="Search...">
-                      <button type="button" class="close">
-                        <span>&times;</span>
-                      </button>
-                  </form>
-              </div>
             </div>
           </div><!-- end .nav-top-mobile -->
           <div class="logo ">
             <a class="navbar-brand" href="index.html">
             <img src="../../assets/img/logo.png" alt="Rocket Logo" />
               <span>BNB</span>
-              <small class="hidden-xs">Raise your standards</small>
+              <small class="hidden-xs">Go Big Or Go Home</small>
             </a>
           </div>
         </div>
         <!-- Collect the nav links, forms, and other content and hide -->
         <div  class="collapse navbar-collapse hidden-xs">
+          
           <ul class="user-profile nav navbar-nav navbar-right">
             <li class="dropdown">
+                <a class="user-block" href="https://goo.gl/JA1r8Z " role="button" aria-haspopup="true" aria-expanded="false">
+                  <span class="user-name" style="margin-right:20px !important;">Rule Book </span>
+                </a>
+            </li>
+            <li>
               <a class="user-block" href="/profile" role="button" aria-haspopup="true" aria-expanded="false">
-                <span class="user-name">Hi {{customer?.Customer.facebook.name}}</span>
-                <span class="caret"></span>
-                <img *ngIf="customer" src="https://graph.facebook.com/v2.11/{{customer.Customer.facebook.id}}/picture" alt="User Profile">
+                <span class="user-name" style="margin-right:20px !important;">Hi, {{customer?.name}} </span>
+                <img *ngIf="customer" src="https://graph.facebook.com/v2.11/{{customer.id}}/picture?type=large" alt="User Profile">
               </a>
 
             </li>
           </ul>
+          <!-- <ul class="nav navbar-nav navbar-right">
+              <span class="user-name" style="margin-right:20px !important;">Rule Book</span>
+          </ul> -->
         </div><!-- end .navbar-collapse -->
       </div><!-- end .container-fluid -->
     </nav><!-- end .nav-top -->

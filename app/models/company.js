@@ -17,13 +17,15 @@ const companySchema = new Schema({
 
   description: String,
 
+  isCrypto: Boolean,
+
   stockPrice: {
     type: Number,
     default:0,
     min: 0.0,
+    max: 5000,
     required:true
   },
-
   availableQuantity: {
     type: Number,
     default: 0,
@@ -31,6 +33,10 @@ const companySchema = new Schema({
     max: parameters.maxNumberOfShares,
     required:true
     //max: company.totalQuantity
+  },
+
+  annualReport: {
+    type: String,
   },
 
   totalQuantity: {
@@ -41,11 +47,6 @@ const companySchema = new Schema({
     required:true
   },
 
-  annualGrowthRate: {
-    type: Number,
-    min: 0
-  },
-
   marketcap: {
     type: Number,
     min: 0
@@ -53,9 +54,7 @@ const companySchema = new Schema({
 
   history:[{
     timeStamp:{
-      type: Date,
-      default: Date.now()
-    },
+      type: Date    },
     stockPrice: {
     type: Number,
     default: 0,
@@ -63,21 +62,10 @@ const companySchema = new Schema({
   },
     availableQuantity:
     { type: Number,
-      default:0,
       min: 0.0,
       max: parameters.maxNumberOfShares
     }
-  }],
-
-  complementaryCompany : [{
-		company : mongoose.Schema.Types.ObjectId,
-		factor : {type: Number, min: 0.0, default: 0.0},
-	}],
-
-	supplementaryCompany : [{
-		company : mongoose.Schema.Types.ObjectId,
-		factor : {type: Number, min: 0.0, default: 0.0},
-	}]
+  }]
 });
 
 const company = module.exports = mongoose.model('company', companySchema);

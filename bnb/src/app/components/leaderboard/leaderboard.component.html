@@ -1,23 +1,69 @@
-<app-navbar></app-navbar>
-<h1>Leaderboard</h1>
-<div *ngIf="customer" class="row">
-  <div class="bootstrapTables">
-    <div class="col-sm-12 col-xs-12 table-responsive">
-      <table class="hover-table table table-hover">
-        <tr>
-          <th>Rank</th>
-          <th>Name</th>
-          <th>Worth</th>
-        </tr>
-        <div *ngFor="let player of customer">
-          <tr>
-            <td>{{player.rank}}</td>
-            <td><img src="https://graph.facebook.com/v2.11/{{player.facebook.id}}/picture" alt="User Profile">  {{player.facebook.name}}
-            </td>
-            <td>{{player.worth}}</td>
-          </tr>
-        </div>
-      </table>
+
+    <!-- Preloader -->
+    <div class="load-bar">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
     </div>
-  </div>
-</div>
+    <div class="contentWrapper">
+      <h1>Your Rank: {{playerRank}}</h1>
+    </div>
+    <div class="contentWrapper">
+      <div class="row">
+        <h1>Leaderboard</h1>
+        <!--<h4>Bootstrap comes with multiple useful table variants.</h4>-->
+      </div>
+      <div *ngIf="playerList" class="row">
+        <div class="bootstrapTables">
+          <div class="col-sm-12 col-xs-12 table-responsive">
+            <table class="hover-table table table-hover">
+              <thead>
+                <tr>
+                  <td ><strong>Rank</strong></td>
+                  <td ><strong>Avatar</strong></td>
+                  <td ><strong>Name</strong></td>
+                  <td ><strong>Worth</strong></td>
+                </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor="let player of playerList;">
+                    <td>{{player.rank}}</td>
+                    <td><img src="https://graph.facebook.com/v2.11/{{player.id}}/picture?type=large" alt="User Profile"  width="40" height="40" hspace="5"> </td>
+                    <td>{{player.name}}</td>
+                    <td >{{player.worth}}</td>
+                  </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+    </div>
+ 

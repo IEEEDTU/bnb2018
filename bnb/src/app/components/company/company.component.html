@@ -1,51 +1,100 @@
-<p>
-  Name: {{company?.compDetails.name}}
-</p>
-<p>
-  Price: {{company?.compDetails.stockPrice}}
-</p>
-<p>
-  Available: {{company?.compDetails.availableQuantity}}
-</p>
-<p>
-  Market capitalisation (in Cr.): {{company?.compDetails.marketcap}}
-</p>
-<p>
-  Growth Rate(%): {{company?.compDetails.annualGrowthRate}}
-</p>
-<p>
-  Your Balance: {{company?.accountBalance}}
-</p>
-<p>
-  Max quantity you can buy:{{company?.buyMax}}
-</p>
-<p>
-  Max quantity you can sell:{{company?.sellMax}}
-</p>
-<p>
-  Max quantity you can short:{{company?.shortMax}}
-</p>
-<p>
-  Max quantity you can cover:{{company?.coverMax}}
-</p>
 
+    <!-- Preloader -->
+    <div class="load-bar">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+    <!-- Page content -->
+    <div class="contentWrapper">
+        <div class="row">
+            <h1>Balance: {{company?.accountBalance}}</h1>
+        </div><br>
+      <div class="userProfile-header">
+        <div class="row">
+          <div class="col-sm-6 col-xs-12">
+            <div id="chartBox">
+                <h6><i class="fa fa-line-chart" aria-hidden="true"></i>Stock Price Statistics</h6>
+              <canvas id="statsChart" style="margin-top:20px;"></canvas>
+            </div>
+          </div>
+          <div class="header-r col-sm-6 col-xs-12 table-responsive">
+            <div>
+              <h3 class="removemargin">{{company?.name}}<a href="{{company?.annualReport}}" style="float:right;">Annual Report</a></h3>
+            </div>
+            <div class="bootstrapTables noborder">
+              <table class="hover-table table table-hover">
+                <tr>
+                  <td>Price : </td>
+                  <td>	{{company?.stockPrice}} </td>
+                </tr>
+                <tr>
+                  <td>Available : </td>
+                  <td>{{company?.availableQuantity}}</td>
+                </tr>
+                <!-- <tr>
+                  <td>Market Capitalisation (in cr.):</td>
+                  <td>{{company?.marketcap}}</td>
+                </tr> -->
+                <!-- <tr>
+                  <td>Growth(%):</td>
+                  <td>{{company?.annualGrowthRate}}</td>
+                </tr> -->
+              </table>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+   
+      <flash-messages></flash-messages>
+      <div class="row form-wrapper">
+        <div class="inline-form col-xs-12">
+          <h3>Buy/Sell/Short/Cover</h3>
+          <!-- <h3>Inline Form</h3> -->
+          <form class="form-inline" [formGroup]="buyForm" novalidate (ngSubmit)="buyStock(buyForm.value)" style="margin-bottom:-25px;">
+            <div class="form-group">
+              <input class="form-control" [ngModel]="amount" type="number" formControlName="amount" value=0 placeholder="Number of Stocks"/>
+            </div>
+            <button type="submit" class="btn" [disabled]="!buyForm.valid"><b>Buy</b></button>
+          </form>
+          <form class="form-inline" [formGroup]="sellForm" novalidate (ngSubmit)="sellStock(sellForm.value)" style="margin-bottom:-25px;">
+            <div class="form-group">
+              <input class="form-control" [ngModel]="amount" type="number" formControlName="amount" value=0 placeholder="Number of Stocks"/>
+            </div>
+            <button type="submit" class="btn" [disabled]="!sellForm.valid"><b>Sell</b></button>
+          </form>
+          <form class="form-inline" [formGroup]="shortForm" novalidate (ngSubmit)="shortStock(shortForm.value)" style="margin-bottom:-25px;">
+            <div class="form-group">
+              <input class="form-control" [ngModel]="amount" type="number" formControlName="amount" value=0 placeholder="Number of Stocks"/>
+            </div>
+            <button type="submit" class="btn" [disabled]="!shortForm.valid"><b>Short</b></button>
+          </form>
+          <form class="form-inline" [formGroup]="coverForm" novalidate (ngSubmit)="coverStock(coverForm.value)" style="margin-bottom:-25px;">
+            <div class="form-group">
+              <input class="form-control" [ngModel]="amount" type="number" formControlName="amount" value=0 placeholder="Number of Stocks"/>
+            </div>
+            <button type="submit" class="btn" [disabled]="!coverForm.valid"><b>Cover</b></button>
+          </form>
+        </div>
+      </div><br><br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
 
-<form [formGroup]="buyForm" novalidate (ngSubmit)="buyStock(buyForm.value)">
-  <input [ngModel]="amount" type="text" formControlName="amount"/>
-  <button type="btn btn-primary" [disabled]="!buyForm.valid">Buy</button>
-</form>
-
-<form [formGroup]="sellForm" novalidate (ngSubmit)="sellStock(sellForm.value)">
-  <input [ngModel]="amount" type="text" formControlName="amount"/>
-  <button type="btn btn-primary" [disabled]="!sellForm.valid">Sell</button>
-</form>
-
-<form [formGroup]="shortForm" novalidate (ngSubmit)="shortStock(shortForm.value)">
-  <input [ngModel]="amount" type="text" formControlName="amount"/>
-  <button type="btn btn-primary" [disabled]="!shortForm.valid">Short</button>
-</form>
-
-<form [formGroup]="coverForm" novalidate (ngSubmit)="coverStock(coverForm.value)">
-  <input [ngModel]="amount" type="text" formControlName="amount"/>
-  <button type="btn btn-primary" [disabled]="!coverForm.valid">Cover</button>
-</form>
+    </div>
